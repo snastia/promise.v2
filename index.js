@@ -18,54 +18,54 @@
 //     "color: red; font-size: 18px"
 //   )
 // як стилізувати консоль лог зверху
-const horses = [
-    'Secretariat',
-    'Eclipse',
-    'West Australian',
-    'Flying Fox',
-    'Seabiscuit',
-  ];
+// const horses = [
+//     'Secretariat',
+//     'Eclipse',
+//     'West Australian',
+//     'Flying Fox',
+//     'Seabiscuit',
+//   ];
 
-const btn = document.querySelector(".js-start-race")
-const winner = document.querySelector(".js-winner")
-const progress = document.querySelector("js-progress")
-const results = document.querySelector(".js-results-table")
+// const btn = document.querySelector(".js-start-race")
+// const winner = document.querySelector(".js-winner")
+// const progress = document.querySelector("js-progress")
+// const results = document.querySelector(".js-results-table")
 
-btn.addEventListener("click", () => {
-    progress.innerHTML = "Заїзд почався"
-    const promiseArr = horses.map(horse => run(horse))
-    Promise.race(promiseArr).then(({horse,time}) => {
-        winner.innerHTML = `🎉 Переможець ${horse}, финишував за ${time} мс часу`
-    })
-    Promise.all(promiseArr).then(() => {
-        progress.innerHTML = "Заїзд закінчився"
-    })
-})
-
-
+// btn.addEventListener("click", () => {
+//     progress.innerHTML = "Заїзд почався"
+//     const promiseArr = horses.map(horse => run(horse))
+//     Promise.race(promiseArr).then(({horse,time}) => {
+//         winner.innerHTML = `🎉 Переможець ${horse}, финишував за ${time} мс часу`
+//     })
+//     Promise.all(promiseArr).then(() => {
+//         progress.innerHTML = "Заїзд закінчився"
+//     })
+// })
 
 
 
-const promisesArr = horses.map(horse => run(horse))
 
-console.log(`🤖 Заїзд розпочався, ставки не приймаються!`)
 
-Promise.race(promisesArr).then(({horse,time})=>console.log(`🎉 Переможець ${horse}, финишував за ${time} мс часу`))
+// const promisesArr = horses.map(horse => run(horse))
 
-Promise.all(promisesArr)
-function getRandomTime(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// console.log(`🤖 Заїзд розпочався, ставки не приймаються!`)
 
-function run (horse) {
-    const time = getRandomTime(1500, 2500)
+// Promise.race(promisesArr).then(({horse,time})=>console.log(`🎉 Переможець ${horse}, финишував за ${time} мс часу`))
 
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve({horse, time})
-        }, time);
-    })
-}
+// Promise.all(promisesArr)
+// function getRandomTime(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
-run("Pole").then(res=>console.log(res))
+// function run (horse) {
+//     const time = getRandomTime(1500, 2500)
+
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             resolve({horse, time})
+//         }, time);
+//     })
+// }
+
+// run("Pole").then(res=>console.log(res))
 
